@@ -1,0 +1,39 @@
+<div class="container mt-3">
+    <h1> Read Users </h1>
+</div>
+<div class="filtrer mt-2">
+    <label for="filtroPremium">Filter by premium:</label>
+    <select id="filtroPremium" [(ngModel)]="filtroPremium" (change)="onChangeFiltroPremium()">
+      <option value="todos">All</option>
+      <option value="true">Premium</option>
+      <option value="false">No Premium</option>
+    </select>
+</div>
+
+<table class="table-fill mt-2">
+    <thead>
+        <tr>
+            <th class="text-left">ID</th>
+                <th class="text-left">Name</th>
+                <th class="text-left">Height</th>
+                <th class="text-left">Birthdate</th>
+                <th class="text-left">Premium</th>
+                <th class="text-left">VideoGames</th>
+        </tr>
+    </thead>
+    <tbody class="table-hover">
+        <tr *ngFor="let item of listUsers">
+            <td class="text-center">{{item.id}}</td>
+            <td class="text-center">{{item.nombre}}</td>
+            <td class="text-center">{{item.estatura}}</td>
+            <td class="text-center">{{item.fechaNacimiento}}</td>
+            <td class="text-center" *ngIf="item.esPremium">Yes</td>
+            <td class="text-center" *ngIf="!item.esPremium">No</td>
+            <td class="text-center actions" routerLinkActive="active">
+                <button type="button" class="btn btn-primary buttoncard" [routerLink]="['/read-videogame',item.id]">
+                    <i class="fa fa-list"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

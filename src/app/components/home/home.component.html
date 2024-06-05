@@ -1,0 +1,39 @@
+<div class="search-form">
+  <form [formGroup]="searchForm" (ngSubmit)="buscarUsuario()">
+    <input type="text" formControlName="id" placeholder="Buscar por ID" aria-label="Buscar por ID">
+    <!--<input type="text" formControlName="nombre" placeholder="Buscar por Nombre" aria-label="Buscar por Nombre">-->
+    <input type="text" formControlName="estatura" placeholder="Buscar por Estatura" aria-label="Buscar por Estatura">
+    <input type="text" formControlName="esPremium" placeholder="Buscar por Premium" aria-label="Buscar por Premium">
+    <button type="submit" class="buttonform">Buscar</button>
+  </form>
+</div>
+
+<div  class="table-fill">
+  <table *ngIf="condicion" class="table-fill mt-2">
+    <thead>
+        <tr>
+            <th class="text-left">ID</th>
+                <th class="text-left">Name</th>
+                <th class="text-left">Height</th>
+                <th class="text-left">Birthdate</th>
+                <th class="text-left">Premium</th>
+                <th class="text-left">VideoGames</th>
+        </tr>
+    </thead>
+    <tbody class="table-hover">
+        <tr>
+            <td class="text-center">{{usuarioEncontrado?.id}}</td>
+            <td class="text-center">{{usuarioEncontrado?.nombre}}</td>
+            <td class="text-center">{{usuarioEncontrado?.estatura}}</td>
+            <td class="text-center">{{usuarioEncontrado?.fechaNacimiento}}</td>
+            <td class="text-center" *ngIf="usuarioEncontrado?.esPremium">Yes</td>
+            <td class="text-center" *ngIf="!usuarioEncontrado?.esPremium">No</td>
+            <td class="text-center actions" routerLinkActive="active">
+                <button type="button" class="btn btn-primary buttoncard" [routerLink]="['/read-videogame',usuarioEncontrado?.id]">
+                    <i class="fa fa-list"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>

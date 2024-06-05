@@ -1,0 +1,59 @@
+<div class="mt-3">
+    <h1> Delete VideoGame</h1>
+</div>
+
+<app-search (usuarioEncontrado)="onUserEncontrado($event)"></app-search>
+    
+<div *ngIf="mostrarForm" class="col-md-12 alert alert-warning" role="alert">
+    Delete a game to {{usuarioEncontrado?.nombre}} with ID {{usuarioEncontrado?.id}}
+</div>
+
+<app-search2 *ngIf="mostrarForm" [existentIds]="existentIds" (juegoEncontrado)="onJuegoEncontrado($event)"></app-search2>
+
+<div class="row g-3 needs-validation" *ngIf="mostrarForm2" [formGroup]="formVideojuego" novalidate>
+    <div class="col-md-12">
+        <form class="row g-3 needs-validation" [formGroup]="formVideojuego" novalidate (ngSubmit)="usuarioEncontrado && eliminarVideojuego(usuarioEncontrado.id, formVideojuego.get('id')?.value)">
+            <fieldset>
+                <legend style="font-size: 15px;"><span class="number">!</span>Please read the information of the game to be deleted carefully.</legend>
+                    <label for="validationDefault01" class="form-label">ID:</label>
+                    <input type="text" class="form-control" id="validationDefault01"
+                        placeholder="Video Game ID" formControlName="id" required pattern="[0-9]+"
+                        [ngClass]="{ 'is-invalid': formVideojuego.get('id')?.invalid && (formVideojuego.get('id')?.touched || formVideojuego.get('id')?.dirty) }" readonly> 0
+
+                    <label for="validationDefault02" class="form-label">Name:</label>
+                    <input type="text" class="form-control" id="validationDefault02"
+                        placeholder="Name of the Video Game" formControlName="nombre" readonly
+                        [ngClass]="{ 'is-invalid': formVideojuego.get('nombre')?.invalid && (formVideojuego.get('nombre')?.touched || formVideojuego.get('nombre')?.dirty) }">
+
+                    <label for="validationDefault03" class="form-label">Price:</label>
+                    <input type="text" class="form-control" id="validationDefault03"
+                        placeholder="Price of the Video Game" formControlName="precio" readonly pattern="[0-9]+(\.[0-9]+)?"
+                        [ngClass]="{ 'is-invalid': formVideojuego.get('precio')?.invalid && (formVideojuego.get('precio')?.touched || formVideojuego.get('precio')?.dirty) }">
+
+                    <label for="validationDefault04" class="form-label">Release date:</label>
+                    <input type="datetime-local" class="form-control" id="validationDefault04"
+                        formControlName="fechaLanzamiento" readonly
+                        [ngClass]="{ 'is-invalid': formVideojuego.get('fechaLanzamiento')?.invalid && (formVideojuego.get('fechaLanzamiento')?.touched || formVideojuego.get('fechaLanzamiento')?.dirty) }">
+
+
+                    <label class="form-label">Multiplayer:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="true" formControlName="multijugador"
+                            id="multijugadorTrue" readonly>
+                        <label class="form-check-label" for="multijugadorTrue">Yes</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="false" formControlName="multijugador"
+                            id="multijugadorFalse" readonly>
+                        <label class="form-check-label" for="multijugadorFalse">No</label>
+                    </div>
+
+            </fieldset>
+                <div *ngIf="mostrarAlerta" class="alert alert-success" role="alert">
+                    Video Game deleted correctly!
+                </div>
+                <button class="buttonform btn btn-primary" type="submit" [disabled]="!formVideojuego.valid">Delete</button> 
+           </form>
+    </div>
+  </div>

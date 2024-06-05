@@ -1,0 +1,11 @@
+.card {
+  margin: 10px; /* Añade margen alrededor de cada tarjeta */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Añade una sombra ligera para un efecto 3D */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Suaviza la transición */
+  cursor: pointer; /* Cambia el cursor a una mano para indicar que es interactuable */
+}
+
+.card:hover {
+  transform: translateY(-10px); /* Mueve la tarjeta hacia arriba */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Añade una sombra más prominente para el efecto de elevación */
+}

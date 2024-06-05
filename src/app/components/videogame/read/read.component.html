@@ -1,0 +1,43 @@
+<div class="container mt-3">
+    <h1> Read VideoGames </h1>
+</div>
+<div class="filtrer mt-2">
+    <label for="filtroMultijugador">Filter by Multiplayer:</label>
+    <select id="filtroMultijugador" [(ngModel)]="filtroMultijugador" (change)="onChangeFiltroMultijugador()">
+      <option value="todos">All</option>
+      <option value="true">Multiplayer</option>
+      <option value="false">No Multiplayer</option>
+    </select>
+</div>
+
+<div class="search-form" >
+    <form [formGroup]="searchForm" (ngSubmit)="buscarVideojuego()">
+      <input type="text" formControlName="id" placeholder="Buscar por ID" aria-label="Buscar por ID">
+      <input type="text" formControlName="nombre" placeholder="Buscar por Nombre" aria-label="Buscar por Nombre">
+      <input type="text" formControlName="precio" placeholder="Buscar por Precio" aria-label="Buscar por Precio">
+    <input type="text" formControlName="multijugador" placeholder="Buscar por Multiplayer" aria-label="Buscar por Multiplayer">
+      <button type="submit" class="buttonform">Buscar</button>
+    </form>
+  </div>
+
+<table class="table-fill mt-2">
+    <thead>
+        <tr>
+            <th class="text-left">ID</th>
+                <th class="text-left">Name</th>
+                <th class="text-left">Price</th>
+                <th class="text-left">Release Date</th>
+                <th class="text-left">Multiplayer</th>
+        </tr>
+    </thead>
+    <tbody class="table-hover">
+        <tr *ngFor="let item of listVideojuegos">
+            <td class="text-center">{{item.id}}</td>
+            <td class="text-center">{{item.nombre}}</td>
+            <td class="text-center">$ {{item.precio}} COP</td>
+            <td class="text-center">{{item.fechaLanzamiento}}</td>
+            <td class="text-center" *ngIf="item.multijugador">Si</td>
+            <td class="text-center" *ngIf="!item.multijugador">No</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,16 @@
+.about-container {
+  text-align: center; /* Esto centra el título */
+}
+
+h1 {
+  margin-bottom: 20px; /* Ajusta esto como creas conveniente */
+  margin-top: 20px; /* Ajusta esto como creas conveniente */
+}
+
+.center-div {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; /* Ajusta el contenido de manera que haya espacio alrededor de los ítems */
+  gap: 20px; /* Añade un espacio de 20px entre cada tarjeta */
+}

@@ -1,0 +1,53 @@
+<div class="mt-3">
+    <h1> Delete User</h1>
+</div>
+
+<app-search (usuarioEncontrado)="onUsuarioEncontrado($event)"></app-search>
+
+<div class="row g-3 needs-validation" [formGroup]="formUser" novalidate>
+    <div class="col-md-12">
+        <form class="row g-3 needs-validation" [formGroup]="formUser" novalidate (ngSubmit)="eliminarUsuario(formUser.get('id')?.value)">
+            <fieldset>
+                <legend style="font-size: 15px;"><span class="number">!</span>Please read the information of the game to be deleted carefully.</legend>
+                    <label for="validationDefault01" class="form-label">ID:</label>
+                    <input type="text" class="form-control" id="validationDefault01"
+                        placeholder="User ID" formControlName="id" required pattern="[0-9]+"
+                        [ngClass]="{ 'is-invalid': formUser.get('id')?.invalid && (formUser.get('id')?.touched || formUser.get('id')?.dirty) }" readonly>
+
+                    <label for="validationDefault02" class="form-label">Name:</label>
+                    <input type="text" class="form-control" id="validationDefault02"
+                        placeholder="Name of the User" formControlName="nombre" readonly
+                        [ngClass]="{ 'is-invalid': formUser.get('nombre')?.invalid && (formUser.get('nombre')?.touched || formUser.get('nombre')?.dirty) }">
+
+                    <label for="validationDefault03" class="form-label">Height:</label>
+                    <input type="text" class="form-control" id="validationDefault03"
+                        placeholder="Height of the User" formControlName="estatura" readonly pattern="[0-9]+(\.[0-9]+)?"
+                        [ngClass]="{ 'is-invalid': formUser.get('estatura')?.invalid && (formUser.get('estatura')?.touched || formUser.get('estatura')?.dirty) }">
+
+                    <label for="validationDefault04" class="form-label">Birthdate:</label>
+                    <input type="datetime-local" class="form-control" id="validationDefault04"
+                        formControlName="fechaNacimiento" readonly
+                        [ngClass]="{ 'is-invalid': formUser.get('fechaNacimiento')?.invalid && (formUser.get('fechaNacimiento')?.touched || formUser.get('fechaNacimiento')?.dirty) }">
+
+
+                    <label class="form-label">Premium:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="true" formControlName="esPremium"
+                            id="esPremiumTrue" readonly>
+                        <label class="form-check-label" for="esPremiumTrue">Yes</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="false" formControlName="esPremium"
+                            id="esPremiumFalse" readonly>
+                        <label class="form-check-label" for="esPremiumFalse">No</label>
+                    </div>
+
+            </fieldset>
+                <div *ngIf="mostrarAlerta" class="alert alert-success" role="alert">
+                    User deleted correctly!
+                </div>
+                <button class="buttonform btn btn-primary" type="submit" [disabled]="!formUser.valid">Delete</button> 
+           </form>
+    </div>
+  </div>

@@ -1,0 +1,18 @@
+[
+  {
+    "img": "/assets/img/manuel.jpg",
+    "description": "Manuel Caicedo"
+  },
+  {
+    "img": "/assets/img/mariana.jpg",
+    "description": "Mariana Millan"
+  },
+  {
+    "img": "/assets/img/sebastian.jpg",
+    "description": "Sebastian Murillo"
+  },
+  {
+    "img": "/assets/img/juan.jpg",
+    "description": "Juan Gonzalez"
+  }
+]

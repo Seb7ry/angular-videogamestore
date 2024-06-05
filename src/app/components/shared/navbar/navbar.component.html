@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="../../../../assets/img/banner-ico.png" width="30" height="30" class="d-inline-block align-text-top">
+            VideoGamesShop
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="home">Home</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Users
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li class="nav-item" routerLinkActive="active"><a class="dropdown-item nav-link" routerLink="create-user">Create</a></li>
+                      <li class="nav-item" routerLinkActive="active"><a class="dropdown-item nav-link" routerLink="read-user">Read</a></li>
+                      <li class="nav-item" routerLinkActive="active"><a class="dropdown-item nav-link" routerLink="update-user">Update</a></li>
+                      <li class="nav-item" routerLinkActive="active"><a class="dropdown-item nav-link" routerLink="delete-user">Delete</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      VideoGames
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li class="nav-item" routerLinkActive="active"><a class="dropdown-item nav-link" routerLink="create-videogame">Create</a></li>
+                      <li class="nav-item" routerLinkActive="active"><a class="dropdown-item nav-link" routerLink="update-videogame">Update</a></li>
+                      <li class="nav-item" routerLinkActive="active"><a class="dropdown-item nav-link" routerLink="delete-videogame">Delete</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="about">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

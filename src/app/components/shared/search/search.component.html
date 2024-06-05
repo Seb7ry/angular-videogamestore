@@ -1,0 +1,18 @@
+
+<div class="d-flex justify-content-center mb-2 mt-2">
+  <div class="input-group" style="width: 50%;">
+    <input type="search" class="form-control" placeholder="Search User" aria-label="Search" #searchInput>
+    <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="buscar(searchInput.value)">
+      <i class="bi bi-search"></i>
+    </button>
+  </div>
+</div>
+
+  <div *ngIf="mostrarAlerta" class="alert field alert-danger" role="alert">
+    Please, enter a ID to search!
+  </div>
+  <div *ngIf="mostrarAlertaNo" class="alert field alert-danger" role="alert">
+    The user ID does not exist.
+  </div>
+
+
